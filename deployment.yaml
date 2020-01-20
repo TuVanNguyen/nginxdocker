@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-webapp
+spec: 
+  replicas: 2
+  selector:
+    matchLabels:
+      app: my-webapp
+      tier: frontend
+  template:
+    metadata:
+      labels:
+        app: my-webapp
+        tier: frontend
+    spec: 
+      containers:
+      - name: hello-nginx
+        image: 4pathia/hello-nginx
+        ports:
+        - containerPort: 80   
+
